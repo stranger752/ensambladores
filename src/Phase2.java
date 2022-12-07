@@ -275,20 +275,21 @@ public class Phase2 {
         }
         else if ( array[2].getType().startsWith("Constante numérica") ){
             if (array[1].getSize().equalsIgnoreCase("word"))
-                cp =16;
+                cp =2;
             else
-                cp =8;
+                cp =1;
         }
         else if ( array[4].getSubtype().startsWith("DUP") ){
             if (array[1].getSize().equalsIgnoreCase("word")) {
-                cp = 16*Integer.parseInt(array[2].getText());
+                cp = 2*Integer.parseInt(array[2].getText());
             }
-            else cp =  8*Integer.parseInt(array[2].getText());
+            else cp = Integer.parseInt(array[2].getText());
         }
         else if (array[0].getSubtype().equalsIgnoreCase("LABEL")) {
+            cp = 0;
         }
         else {
-            cp = 16;
+            cp = 2;
         }
         return cp;
     }
