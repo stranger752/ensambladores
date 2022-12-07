@@ -37,6 +37,8 @@ public class Controller {
         addListenersBttnLexicalR();
         addListenersBttnSemanticL();
         addListenersBttnSemanticR();
+        addListenersBttnSymbolsL();
+        addListenersBttnSymbolsR();
         addListenersBttnEncodingL();
         addListenersBttnEncodingR();
 
@@ -244,30 +246,6 @@ public class Controller {
         });
 
     }
-    
-
-    private void addListenersBttnEncodingL(){
-        JLabel bttn = main.getBttnEncodingL();
-
-        bttn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if ( counterEncoding >= 28 ) {
-                    counterEncoding = counterEncoding-28;
-                    main.getTableEncoding().setModel(getUpdatedTableModel( main.getTableEncoding(),
-                            analyzer.getEncoding(), counterEncoding, counterEncoding+28) );
-                }
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bttn.setForeground(main.getCOLOR_BLACK());
-                bttn.setBackground(main.getCOLOR_GREEN());
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bttn.setForeground(main.getCOLOR_WHITE());
-                bttn.setBackground(main.getCOLOR_BLUE());
-            }
-        });
-
-    }
 
     /**
      * Agrega listeners a la etiqueta/botón 'Siguiente' del campo del análisis sintáctico/semántico
@@ -281,6 +259,30 @@ public class Controller {
                     counterSemantic = counterSemantic+28;
                     main.getTableSemantic().setModel(getUpdatedTableModel( main.getTableSemantic(),
                             analyzer.getSemantic(), counterSemantic, counterSemantic+28) );
+                }
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bttn.setForeground(main.getCOLOR_BLACK());
+                bttn.setBackground(main.getCOLOR_GREEN());
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bttn.setForeground(main.getCOLOR_WHITE());
+                bttn.setBackground(main.getCOLOR_BLUE());
+            }
+        });
+
+    }
+    
+
+    private void addListenersBttnEncodingL(){
+        JLabel bttn = main.getBttnEncodingL();
+
+        bttn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if ( counterEncoding >= 28 ) {
+                    counterEncoding = counterEncoding-28;
+                    main.getTableEncoding().setModel(getUpdatedTableModel( main.getTableEncoding(),
+                            analyzer.getEncoding(), counterEncoding, counterEncoding+28) );
                 }
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
