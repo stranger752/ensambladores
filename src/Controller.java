@@ -41,7 +41,8 @@ public class Controller {
         addListenersBttnSymbolsR();
         addListenersBttnEncodingL();
         addListenersBttnEncodingR();
-
+        addListenersBttnSymbolsL2();
+        addListenersBttnSymbolsR2();
     }
 
     /**
@@ -272,6 +273,58 @@ public class Controller {
         });
 
     }
+
+    /**
+     * Agrega listeners a la etiqueta/botón 'Anterior' del campo del símbolos
+     */
+    private void addListenersBttnSymbolsL(){
+        JLabel bttn = main.getBttnSymbolsL();
+
+        bttn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if ( counterSymbols >= 28 ) {
+                    counterSymbols = counterSymbols-28;
+                    main.getTableSymbols().setModel(getUpdatedTableModel( main.getTableSymbols(),
+                            analyzer.getSymbols(), counterSymbols, counterSymbols+28) );
+                }
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bttn.setForeground(main.getCOLOR_BLACK());
+                bttn.setBackground(main.getCOLOR_GREEN());
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bttn.setForeground(main.getCOLOR_WHITE());
+                bttn.setBackground(main.getCOLOR_BLUE());
+            }
+        });
+
+    }
+
+    /**
+     * Agrega listeners a la etiqueta/botón 'Siguiente' del campo de símbolos
+     */
+    private void addListenersBttnSymbolsR(){
+        JLabel bttn = main.getBttnSymbolsR();
+
+        bttn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if ( counterSymbols <= analyzer.getSymbols().size()-28 ) {
+                    counterSymbols = counterSymbols+28;
+                    main.getTableSymbols().setModel(getUpdatedTableModel( main.getTableSymbols(),
+                            analyzer.getSymbols(), counterSymbols, counterSymbols+28) );
+                }
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bttn.setForeground(main.getCOLOR_BLACK());
+                bttn.setBackground(main.getCOLOR_GREEN());
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bttn.setForeground(main.getCOLOR_WHITE());
+                bttn.setBackground(main.getCOLOR_BLUE());
+            }
+        });
+
+    }
     
 
     private void addListenersBttnEncodingL(){
@@ -321,17 +374,17 @@ public class Controller {
     }
 
     /**
-     * Agrega listeners a la etiqueta/botón 'Anterior' del campo del símbolos
+     * Agrega listeners a la etiqueta/botón 'Anterior' del campo del símbolos2
      */
-    private void addListenersBttnSymbolsL(){
-        JLabel bttn = main.getBttnSymbolsL();
+    private void addListenersBttnSymbolsL2(){
+        JLabel bttn = main.getBttnSymbolsL2();
 
         bttn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if ( counterSymbols >= 28 ) {
-                    counterSymbols = counterSymbols-28;
-                    main.getTableSymbols().setModel(getUpdatedTableModel( main.getTableSymbols(),
-                            analyzer.getSymbols(), counterSymbols, counterSymbols+28) );
+                if ( counterSymbols2 >= 28 ) {
+                    counterSymbols2 = counterSymbols2-28;
+                    main.getTableSymbols2().setModel(getUpdatedTableModel( main.getTableSymbols2(),
+                            analyzer.getSymbols2(), counterSymbols2, counterSymbols2+28) );
                 }
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -347,17 +400,17 @@ public class Controller {
     }
 
     /**
-     * Agrega listeners a la etiqueta/botón 'Siguiente' del campo de símbolos
+     * Agrega listeners a la etiqueta/botón 'Siguiente' del campo de símbolos2
      */
-    private void addListenersBttnSymbolsR(){
-        JLabel bttn = main.getBttnSymbolsR();
+    private void addListenersBttnSymbolsR2(){
+        JLabel bttn = main.getBttnSymbolsR2();
 
         bttn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if ( counterSymbols <= analyzer.getSymbols().size()-28 ) {
-                    counterSymbols = counterSymbols+28;
-                    main.getTableSymbols().setModel(getUpdatedTableModel( main.getTableSymbols(),
-                            analyzer.getSymbols(), counterSymbols, counterSymbols+28) );
+                if ( counterSymbols2 <= analyzer.getSymbols2().size()-28 ) {
+                    counterSymbols2 = counterSymbols2+28;
+                    main.getTableSymbols2().setModel(getUpdatedTableModel( main.getTableSymbols2(),
+                            analyzer.getSymbols2(), counterSymbols2, counterSymbols2+28) );
                 }
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
